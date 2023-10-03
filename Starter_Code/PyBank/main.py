@@ -9,8 +9,8 @@ date = []
 count = 0
 total_profit = 0
 total_change_profits = 0
-monthly_changes = 0
-initial_profit = 0
+monthly_changes = []
+initial_profit = 1088983
 
 #Open PyBankcsv 
 with open(PyBankcsv, newline="") as csvfile:
@@ -38,15 +38,15 @@ with open(PyBankcsv, newline="") as csvfile:
       total_change_profits = total_change_profits + monthly_change_profits
       initial_profit = final_profit
 
-      #Calculate the average change in profits
-      average_change_profits = (total_change_profits/count)
-
-      #Find the max and min change in profits and the corresponding dates these changes were observed
-      greatest_increase_profits = max(monthly_changes)
-      greatest_decrease_profits = min(monthly_changes)
-
-      increase_date = date[monthly_changes.index(greatest_increase_profits)]
-      decrease_date = date[monthly_changes.index(greatest_decrease_profits)]
+#Calculate the average change in profits
+average_change_profits = (total_change_profits/count)
+print("********")
+print (sum(monthly_changes)/count)
+#Find the max and min change in profits and the corresponding dates these changes were observed
+greatest_increase_profits = max(monthly_changes)
+greatest_decrease_profits = min(monthly_changes)
+increase_date = date[monthly_changes.index(greatest_increase_profits)]
+decrease_date = date[monthly_changes.index(greatest_decrease_profits)]
 
 print("--------------------------------------------")
 print("Financial Analysis")

@@ -12,6 +12,7 @@ candidatelist = []
 unique_candidate = []
 vote_count = []
 vote_percent = []
+x = round(9.99999 ,3)
 
 #Open PyPollcsv 
 
@@ -42,10 +43,11 @@ print("--------------------------")
 print("Total Votes :" + str(count))
 print("--------------------------")
 for i in range(len(unique_candidate)):
-             print(unique_candidate[i] + ": " + str(vote_percent[i]) +"% (" + str(vote_count[i])+ ")")
+             print(unique_candidate[i] + ": " + str(vote_percent[i]) +"% (" + str(vote_count[i])+")")
 print("--------------------------")
 print("Winner: " + winner)
 print("--------------------------")
+
 
 #Print to a text file: election_results.txt
 
@@ -57,7 +59,7 @@ with open(PyPollAnalysis, 'w') as text:
     text.write("Total Votes:" + str(count) + "\n")
     text.write("-----------------------------------\n")
     for i in range(len(set(unique_candidate))):
-        text.write(unique_candidate[i] + ":" + str(vote_percent[i]) +"% ("+ str(vote_count[i]) + ")\n")
+        text.write(unique_candidate[i] + ":" + str(round(vote_percent[i],3)) +"% ("+ str(vote_count[i]) + ")\n")
     text.write("-----------------------------------\n")   
     text.write("Winner: " + winner + "\n")
     text.write("-----------------------------------\n")
